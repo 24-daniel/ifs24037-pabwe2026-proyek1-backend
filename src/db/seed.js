@@ -13,7 +13,7 @@ const SAMPLE_EVENTS = [
   { title: "Rapat Majelis Bulanan", category: "rapat", offset: 10, startTime: "17:00", location: "Ruang Rapat Majelis", leader: "Pdt. Samuel Sitorus", description: "Evaluasi program dan persiapan perayaan Natal." },
 ];
 
-export function seedIfEmpty() {
+export function seedDatabase() {
   if (repository.count() > 0) return;
   SAMPLE_EVENTS.forEach(({ offset, ...event }) =>
     repository.create({ ...event, eventDate: toIsoDate(offset) })

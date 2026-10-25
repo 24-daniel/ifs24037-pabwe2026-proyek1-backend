@@ -20,5 +20,11 @@ db.exec(`
     leader      TEXT NOT NULL DEFAULT '',
     description TEXT NOT NULL DEFAULT ''
   );
+  CREATE TABLE IF NOT EXISTS users (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    username      TEXT NOT NULL,
+    email         TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL
+  );
   CREATE INDEX IF NOT EXISTS idx_events_schedule ON events (event_date, start_time);
 `);

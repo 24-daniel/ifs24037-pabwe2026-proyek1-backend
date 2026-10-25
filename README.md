@@ -34,3 +34,14 @@ bun run dev              # http://localhost:8000
 - Cek `GET /api/v1/health` setelah deploy.
 - Isi `CORS_ORIGIN` dengan URL frontend yang sudah dideploy, mis. `https://ifs24037-pabwe2026-proyek1.xxx`. Beberapa URL dipisah koma.
 - Backend harus selalu online saat frontend dinilai Lighthouse, karena halaman memanggil API saat dibuka.
+
+## Autentikasi
+Membaca jadwal terbuka untuk umum. Menambah, mengubah, dan menghapus kegiatan butuh login.
+
+| Method | Path | Fungsi |
+|---|---|---|
+| POST | /auth/register | Daftar akun baru (`username`, `email`, `password` minimal 8 karakter) |
+| POST | /auth/login | Masuk dengan `email` dan `password`, mengembalikan token |
+| GET | /auth/me | Profil pengguna (header `Authorization: Bearer <token>`) |
+
+Di production, isi `AUTH_SECRET` dengan teks acak yang panjang.

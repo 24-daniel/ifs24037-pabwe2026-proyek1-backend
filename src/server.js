@@ -1,9 +1,9 @@
 import express from "express";
 import { config } from "./config.js";
 import { configureApp } from "./configureApp.js";
-import { seedIfEmpty } from "./db/seed.js";
+import { seedDatabase } from "./db/seed.js";
 
-seedIfEmpty();
+seedDatabase();
 const app = configureApp(express());
 
 // Di Vercel, platform yang menjalankan server. Di komputer sendiri kita jalankan manual.
